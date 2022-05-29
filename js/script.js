@@ -1,74 +1,155 @@
-// const this_url = 'https://patelka2211.github.io/RepoList';
-const this_url = "https://Hardijoisar.github.io/RepoList";
-const username_regex = /.*\/\/(.*?)\.github\.io\/.*/;
-const document_title = document.title;
-if (username_regex.test(this_url)) {
-    const username = username_regex.exec(this_url)[1];
-    // User root data
-    fetch(`https://api.github.com/users/${username}`)
-        .then((response) => response.json())
-        .then(
-            // data => console.log(data)
-            // .avatar_url
-            (data_json) => {
-                // const opengraph_tags = document.querySelectorAll('.opengraph_image');
-                // opengraph_tags.forEach(element => {
-                //     element.content = `${data_json.avatar_url}`;
-                // });
-
-                const name = data_json["name"] != null ? data_json.name : username;
-                set_repeated_data("opengraph_image", "content", data_json.avatar_url);
-                // console.log(opengraph_tags[0].content);
-
-                console.log(`About ${name}`);
-            }
-        );
-    // User repo data
-    set_repeated_data(
-        "title",
-        "content",
-        "Kartavya Patel has 3 public repository on GitHub."
-    );
+if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
+    document.body.classList.toggle("dark-mode");
 }
 
-function set_repeated_data(class_name, attribute, value) {
-    const selected_tags = document.querySelectorAll(`.${class_name}`);
-    selected_tags.forEach((tag) => {
-        tag[attribute] = `${value}`;
+function uid_to_json_key(uid) {
+    return uid.replace('-', '_').replace('.', '_');
+}
+
+class root {
+    constructor(uname) {
+        this.uname = uname;
+        this.time_interval_minutes = 5;
+        this.ss = sessionStorage;
+        this.url = `https://api.github.com/users/${uname}`;
+    }
+
+    has_been_stored() {
+        if (this.ss.hasOwnProperty(`${uid_to_json_key(this.uname)}_nav`)) {
+            return true;
+        }
+        return false;
+    }
+
+    check_validity() {
+        if (!this.has_been_stored()) {
+            return true;
+        }
+        if (new Date().getTime() < new Date(JSON.parse(this.ss.getItem(`${uid_to_json_key(this.uname)}_nav`)).timestamp + this.time_interval_minutes * 60000)) {
+            return false;
+        }
+        return true;
+    }
+
+    main() {
+        if (this.check_validity()) {
+            fetch(this.url)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    location.replace("/e404");
+                })
+                .then((output) => {
+                    let temp = {
+                        nav_dp: (() => {
+                            return `https://avatars.githubusercontent.com/u/${output.id}`;
+                        })(),
+                        nav_name: (() => {
+                            if (output.name == "" || output.name == null) {
+                                return output.login;
+                            }
+                            return `${output.name} (${output.login})`;
+                        })(),
+                        nav_repo: `${output.public_repos} Repositories`,
+                        nav_social: (() => {
+                            let flwers = output.followers;
+                            if (flwers > 1000) {
+                                flwers = parseFloat(`${flwers / 1000}`).toFixed(1) + "k";
+                            }
+                            let flwing = output.following;
+                            if (flwing > 1000) {
+                                flwing = parseFloat(`${flwing / 1000}`).toFixed(1) + "k";
+                            }
+                            return `${flwers} Followers • ${flwing} Following`;
+                        })(),
+                    };
+
+                    this.ss.setItem(
+                        `${uid_to_json_key(this.uname)}_nav`,
+                        JSON.stringify({
+                            user: this.uname,
+                            timestamp: new Date().getTime(),
+                            data: temp,
+                        })
+                    );
+                });
+        }
+    }
+}
+
+let uname = new URLSearchParams(window.location.search).get("uid");
+
+if (uname == null) {
+    uname = "patelka2211";
+}
+
+let obj_root = new root(uname);
+
+obj_root.main();
+
+if (!sessionStorage.hasOwnProperty(`${uid_to_json_key(uname)}_nav`)) {
+    setTimeout(() => {
+        main_root();
+    }, 1600);
+} else {
+    main_root();
+}
+
+function main_root() {
+    let ss_root = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_nav`));
+    let content = [{
+            class: "nav_links",
+            attr: "href",
+            input: (() => {
+                let temp = [];
+                let paths = ["user", "repos", "social", "star"];
+
+                paths.forEach((path) => {
+                    temp.push(`${path}/?uid=${ss_root.user}`);
+                });
+
+                // temp.push('about');
+
+                return temp;
+            })(),
+        },
+        {
+            id: "nav_dp",
+            attr: "src",
+            input: ss_root.data.nav_dp,
+        },
+        {
+            id: "nav_name",
+            attr: "innerText",
+            input: ss_root.data.nav_name,
+        },
+        {
+            id: "nav_repos",
+            attr: "innerText",
+            input: ss_root.data.nav_repo,
+        },
+        {
+            id: "nav_social",
+            attr: "innerText",
+            input: ss_root.data.nav_social,
+        },
+    ];
+
+    content.forEach((item) => {
+        try {
+            if (item.hasOwnProperty("class")) {
+                let classes = document.getElementsByClassName(item.class);
+                for (let index = 0; index < item.input.length; index++) {
+                    classes[index][item.attr] = item.input[index];
+                }
+            } else if (item.hasOwnProperty("id")) {
+                let element = document.getElementById(item.id);
+                element[item.attr] = item.input;
+            }
+        } catch {}
     });
 }
-
-// const json_data = {
-//     login: "patelka2211",
-//     id: 82671701,
-//     node_id: "MDQ6VXNlcjgyNjcxNzAx",
-//     avatar_url: "https://avatars.githubusercontent.com/u/82671701?v=4",
-//     gravatar_id: "",
-//     url: "https://api.github.com/users/patelka2211",
-//     html_url: "https://github.com/patelka2211",
-//     followers_url: "https://api.github.com/users/patelka2211/followers",
-//     following_url: "https://api.github.com/users/patelka2211/following{/other_user}",
-//     gists_url: "https://api.github.com/users/patelka2211/gists{/gist_id}",
-//     starred_url: "https://api.github.com/users/patelka2211/starred{/owner}{/repo}",
-//     subscriptions_url: "https://api.github.com/users/patelka2211/subscriptions",
-//     organizations_url: "https://api.github.com/users/patelka2211/orgs",
-//     repos_url: "https://api.github.com/users/patelka2211/repos",
-//     events_url: "https://api.github.com/users/patelka2211/events{/privacy}",
-//     received_events_url: "https://api.github.com/users/patelka2211/received_events",
-//     type: "User",
-//     site_admin: false,
-//     name: "Kartavya Patel",
-//     company: null,
-//     blog: "",
-//     location: null,
-//     email: null,
-//     hireable: null,
-//     bio: null,
-//     twitter_username: null,
-//     public_repos: 3,
-//     public_gists: 0,
-//     followers: 4,
-//     following: 8,
-//     created_at: "2021-04-16T16:53:13Z",
-//     updated_at: "2022-05-07T17:20:06Z",
-// };
