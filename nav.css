@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap");
+:root {
+  --primary: #f4f5f5;
+  --highlight: #1673f0;
+  --title: #6c7780;
+  --under-title: #050401;
+}
+
+.dark-mode {
+  --primary: #141219;
+  --highlight: #28a9ff;
+  --title: #908c91;
+  --under-title: #e8eee7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+body .main {
+  position: absolute;
+  width: 84%;
+  color: var(--title);
+  right: 0;
+}
+
+body .main .space {
+  height: 0;
+}
+
+body .nav {
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
+  position: fixed;
+  width: 16%;
+  height: 100vh;
+  left: 0;
+  border-right: 0.1px solid var(--title);
+}
+
+body .nav .list {
+  margin: 10px 0;
+}
+
+body .nav .list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .nav .list li a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: border 0.4s ease;
+  transition: border 0.4s ease;
+  border: 1px solid var(--title);
+  border-radius: 0.5rem;
+  margin: 8px 0;
+  padding: 5px 4px;
+  width: 12vw;
+}
+
+body .nav .list li a .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 3px;
+}
+
+body .nav .list li a .icon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+body .nav .list li a .icon svg {
+  width: 30px;
+  -webkit-transition: fill 0.4s ease;
+  transition: fill 0.4s ease;
+  fill: var(--title);
+}
+
+body .nav .list li a .text {
+  font-size: 0.9rem;
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  padding-left: 3px;
+  color: var(--title);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .nav .list li a:hover {
+  border: 1px solid var(--under-title);
+}
+
+body .nav .list li a:hover .icon svg {
+  fill: var(--under-title);
+}
+
+body .nav .list li a:hover .text {
+  color: var(--under-title);
+}
+
+body .nav .list li a.selected {
+  border: 1.6px solid var(--highlight);
+}
+
+body .nav .list li a.selected .text {
+  color: var(--highlight);
+}
+
+@media (max-width: 912px) {
+  body {
+    background-color: var(--primary);
+  }
+  body .main {
+    position: absolute;
+    width: 100%;
+    top: 0;
+  }
+  body .main .space {
+    height: 8vh;
+  }
+  body .nav {
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    bottom: 0;
+    border-top: 0.1px solid var(--title);
+  }
+  body .nav .list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    height: inherit;
+    margin-top: 0;
+  }
+  body .nav .list li a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    border-radius: 100%;
+    width: inherit;
+    border: none;
+  }
+  body .nav .list li a .icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .nav .list li a .icon .dot {
+    display: none;
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    margin-top: 3px;
+    background-color: var(--highlight);
+  }
+  body .nav .list li a .text {
+    display: none;
+  }
+  body .nav .list li a.selected {
+    border: none;
+  }
+  body .nav .list li a.selected .icon .dot {
+    display: block;
+  }
+}
+/*# sourceMappingURL=nav.css.map */
