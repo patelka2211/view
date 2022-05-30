@@ -183,5 +183,5 @@ function main_star() {
                                     </div>`;
     });
 
-    document.title = `Starred by ${uname}`
+    document.title = `Starred by ${uname}`;
 }

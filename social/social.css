@@ -1,0 +1,110 @@
+.main .container {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .container .options-container {
+  background-color: var(--primary-o8);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-bottom: 0.1px solid var(--separator-color);
+  position: fixed;
+  width: 100%;
+  max-width: 774px;
+  height: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .container .options-container .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .container .options-container .options input {
+  display: none;
+}
+
+.main .container .options-container .options input + label {
+  border-radius: 100vh;
+  -webkit-transition: border-color 0.4s ease, color 0.4s ease;
+  transition: border-color 0.4s ease, color 0.4s ease;
+  border: 1.6px solid #00000000;
+  padding: 1vh 1.6vh;
+  margin: 0 10px;
+  color: var(--separator-dim);
+}
+
+.main .container .options-container .options input + label:hover {
+  cursor: pointer;
+  color: var(--color-attract);
+  border-color: var(--separator-color);
+}
+
+.main .container .options-container .options input:checked + label {
+  border-radius: 100vh;
+  color: var(--highlight);
+  border: 1.6px solid var(--highlight);
+  padding: 1vh 1.6vh;
+  margin: 0 10px;
+}
+
+.main .container .content {
+  width: 96%;
+  max-width: 774px;
+}
+
+.main .container .content .cards .card {
+  background-color: blue;
+}
+
+.main .container .content .cards .card .profile_pic img {
+  width: 50%;
+}
+
+.main .container .content .cards .card .metadata {
+  background-color: pink;
+}
+
+.main .container .content .space {
+  height: 8vh;
+}
+
+.main .container .space {
+  height: 0;
+}
+
+@media (max-width: 912px) {
+  .main .container {
+    width: 100%;
+    height: 92vh;
+  }
+  .main .container .space {
+    height: 8vh;
+  }
+}
+/*# sourceMappingURL=social.css.map */
