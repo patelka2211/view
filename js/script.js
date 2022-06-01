@@ -9,6 +9,13 @@ function uid_to_json_key(uid) {
     return uid.replace('-', '_').replace('.', '_');
 }
 
+function update_search_params(key, value) {
+    let loc = window.location;
+    let params_now = new URLSearchParams(loc.search);
+    params_now.set(key,value);
+    history.replaceState({}, null, loc.origin+loc.pathname+'?'+params_now.toString());
+}
+
 class root {
     constructor(uname) {
         this.uname = uname;

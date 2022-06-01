@@ -155,12 +155,22 @@
   margin: 0px 4px;
 }
 
+.main .container .content .cards .card .externals .pages a span {
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+}
+
 .main .container .content .cards .card .externals .pages a:hover {
   color: var(--color-attract);
 }
 
 .main .container .content .cards .card .externals .pages a:hover svg {
   fill: var(--highlight);
+}
+
+.main .container .content .cards .card .externals .pages a:hover span {
+  color: var(--highlight);
 }
 
 .main .container .content .cards .card .externals .pages.hide {

@@ -109,10 +109,17 @@
                                     height: 16px;
                                     margin: 0px 4px;
                                 }
+                                span{
+                                    transition: color 0.4s ease;
+                                    color: var(--color-attract);
+                                }
                                 &:hover {
                                     color: var(--color-attract);
                                     svg {
                                         fill: var(--highlight);
+                                    }
+                                    span{
+                                        color: var(--highlight);
                                     }
                                 }
                             }
