@@ -126,16 +126,7 @@ let cards = document.getElementById('cards-area');
 
 
 function update_cards(tab) {
-    // let temp = {
-    //     "uname": "sarthak1206",
-    //     "profile_pic": "https://avatars.githubusercontent.com/u/66436609",
-    //     "followers_url": "",
-    //     "following_url": "",
-    //     "repositories_url": "",
-    //     "starred_url": ""
-    // };
     let ss_tab = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_${tab}`));
-    // return;
     if (ss_tab.data.length == 0) {
         no_data_state.classList.remove('hide');
         if (tab == 'followers') {
