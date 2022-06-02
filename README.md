@@ -30,15 +30,15 @@ It can be use to **view** GitHub profile of a particular user.
 # Examples
 
 
-[About me (patelka2211)]("https://patelka2211.github.io/view/user/?uid=patelka2211")
+[About me (patelka2211)](https://patelka2211.github.io/view/user/?uid=patelka2211)
 
-[patelka2211/repos]("https://patelka2211.github.io/view/repos/?uid=patelka2211")
+[patelka2211/repos](https://patelka2211.github.io/view/repos/?uid=patelka2211)
 
-[patelka2211/star]("https://patelka2211.github.io/view/star/?uid=patelka2211")
+[patelka2211/star](https://patelka2211.github.io/view/star/?uid=patelka2211)
 
-[patelka2211/followers]("https://patelka2211.github.io/view/social/?uid=patelka2211?see=followers")
+[patelka2211/followers](https://patelka2211.github.io/view/social/?uid=patelka2211?see=followers)
 
-[patelka2211/following]("https://patelka2211.github.io/view/social/?uid=patelka2211?see=following")
+[patelka2211/following](https://patelka2211.github.io/view/social/?uid=patelka2211?see=following)
 
 # About languages
 

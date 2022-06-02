@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+:root {
+  --primary: rgb(255, 255, 255);
+  --primary-o8: #ffffffcc;
+  --highlight: #1673f0;
+  --highlight-o_24: rgba(31, 142, 247.5, 0.24);
+  --color-dim: #6c7780;
+  --color-attract: #050401;
+  --separator-color: rgba(132, 131.5, 135, 0.4);
+}
+
+.dark-mode {
+  --primary: #141219;
+  --primary-o8: #131118cc;
+  --highlight: #28a9ff;
+  --highlight-o_24: rgba(31, 142, 247.5, 0.24);
+  --color-dim: #908c91;
+  --color-attract: #e8eee7;
+  --separator-color: rgba(132, 131.5, 135, 0.4);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-transition: background 0.4s ease;
+  transition: background 0.4s ease;
+  background: var(--primary);
+  border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-transition: background 0.4s ease;
+  transition: background 0.4s ease;
+  background: var(--color-dim);
+  border-radius: 100vh;
+}
+
+@supports (scrollbar-color: var(--color-dim) var(--primary)) {
+  * {
+    -webkit-transition: scrollbar-color 0.4s ease;
+    transition: scrollbar-color 0.4s ease;
+    scrollbar-color: var(--color-dim) var(--primary);
+    scrollbar-width: thin;
+    border-radius: 100vh;
+  }
+}
+
+.container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+.container .content {
+  width: 96%;
+  max-width: 774px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .content .title {
+  letter-spacing: 0.6px;
+  margin-bottom: 4vh;
+  font-size: 1.4rem;
+  width: 55%;
+  color: var(--color-attract);
+}
+
+.container .content .title span {
+  background: linear-gradient(164deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.container .content .description {
+  width: 84%;
+  margin-bottom: 2vh;
+  color: var(--color-dim);
+}
+
+.container .content .description .bold {
+  color: var(--color-attract);
+}
+
+.container .content .input {
+  margin: 2vh 0;
+  width: 44%;
+  min-width: 197px;
+  background-color: var(--primary);
+  border: 1px solid var(--color-dim);
+  padding: 1vh 1.6vh;
+  border-radius: 0.8vh;
+  color: var(--color-attract);
+}
+
+.container .content .input:focus {
+  border: 1px solid rgba(22, 115, 240, 0.6);
+  outline: 1.6px solid rgba(22, 115, 240, 0.6);
+}
+
+.container .content #error {
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: transparent;
+  margin: 2vh 0;
+}
+
+.container .content #error.show {
+  color: #ff5050;
+}
+
+.container .content .externals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 2vh 0;
+  width: 64%;
+  min-width: 197px;
+  background-color: var(--primary);
+  border: 0.1px solid var(--color-dim);
+  padding: 1vh 1.6vh;
+  border-radius: 0.8vh;
+}
+
+.container .content .externals a {
+  text-decoration: none;
+  color: var(--highlight);
+  margin: 1.25vh 0;
+}
+
+.container .content .externals.hide {
+  display: none;
+}
+
+.container .content .credits .me {
+  font-size: 1.1rem;
+  margin-bottom: 1.25vh;
+  color: var(--color-dim);
+}
+
+.container .content .credits .me a {
+  background: linear-gradient(164deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.container .content .credits .cprt {
+  font-size: 0.8rem;
+  color: var(--color-dim);
+}
+
+.container .content .credits .cprt #kp {
+  color: var(--color-attract);
+}
+
+.container .space {
+  height: 8vh;
+  background-color: green;
+}
+
+@media (max-width: 912px) {
+  .container .content .title {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=about.css.map */

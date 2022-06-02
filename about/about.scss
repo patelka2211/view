@@ -1,0 +1,178 @@
+@import '../css/colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--primary);
+}
+
+$transition-time: 0.4s;
+
+::-webkit-scrollbar {
+    width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+    transition: background $transition-time ease;
+    background: var(--primary);
+    border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb {
+    transition: background $transition-time ease;
+    background: var(--color-dim);
+    border-radius: 100vh;
+}
+
+@supports (scrollbar-color: var(--color-dim) var(--primary)) {
+    * {
+        transition: scrollbar-color $transition-time ease;
+        scrollbar-color: var(--color-dim) var(--primary);
+        scrollbar-width: thin;
+        border-radius: 100vh;
+    }
+}
+
+.container {
+    width: 100%;
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    // background-color: blue;
+
+    text-align: center;
+
+    .content {
+        width: 96%;
+        max-width: 774px;
+        // height: 84vh;
+        // background-color: red;
+        $margin_bottom: 2vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            letter-spacing: 0.6px;
+            margin-bottom: $margin_bottom*2;
+            font-size: 1.4rem;
+            width: 55%;
+            color: var(--color-attract);
+
+            span {
+                background: linear-gradient(164deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+        }
+
+        .description {
+            width: 84%;
+            margin-bottom: $margin_bottom;
+            // background-color: green;
+            color: var(--color-dim);
+
+            .bold {
+                color: var(--color-attract);
+                // background: linear-gradient(135deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+                // -webkit-background-clip: text;
+                // color: transparent;
+            }
+        }
+
+        .input {
+            margin: $margin_bottom 0;
+            width: 44%;
+            min-width: 197px;
+            background-color: var(--primary);
+            border: 1px solid var(--color-dim);
+            padding: 1vh 1.6vh;
+            border-radius: 0.8vh;
+
+            color: var(--color-attract);
+            &:focus {
+                border: 1px solid rgba(22, 115, 240, 0.6);
+                outline: 1.6px solid rgba(22, 115, 240, 0.6);
+            }
+        }
+
+        #error {
+            transition: color $transition-time ease;
+            color: transparent;
+            // color: blue;
+            margin: $margin_bottom 0;
+
+            &.show {
+                color: rgb(255, 80, 80);
+            }
+        }
+
+        .externals {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin: $margin_bottom 0;
+            width: 64%;
+            min-width: 197px;
+            background-color: var(--primary);
+            border: 0.1px solid var(--color-dim);
+            padding: 1vh 1.6vh;
+            border-radius: 0.8vh;
+
+            a {
+                text-decoration: none;
+                color: var(--highlight);
+                margin: $margin_bottom/1.6 0;
+            }
+            
+            &.hide {
+                display: none;
+            }
+        }
+
+        .credits {
+            .me {
+                font-size: 1.1rem;
+                margin-bottom: $margin_bottom/1.6;
+                color: var(--color-dim);
+
+                a {
+                    background: linear-gradient(164deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+                    -webkit-background-clip: text;
+                    color: transparent;
+                }
+            }
+
+            .cprt {
+                font-size: 0.8rem;
+                color: var(--color-dim);
+
+                #kp {
+                    color: var(--color-attract);
+                }
+            }
+        }
+    }
+
+    .space {
+        height: 8vh;
+        background-color: green;
+    }
+}
+
+@media (max-width:912px) {
+    .container {
+        .content {
+            .title {
+                width: 80%;
+            }
+        }
+    }
+}

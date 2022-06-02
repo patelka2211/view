@@ -126,8 +126,6 @@ function main_root() {
                     temp.push(`${path}/?uid=${ss_root.user}`);
                 });
 
-                // temp.push('about');
-
                 return temp;
             })(),
         },
