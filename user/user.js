@@ -35,7 +35,7 @@ class user {
                     if (response.ok) {
                         return response.json();
                     }
-                    location.replace('/e404');
+                    location.replace('../e404');
                 })
                 .then((output) => {
                     let temp = {
@@ -96,7 +96,7 @@ function main() {
     let ss_user = JSON.parse(sessionStorage.getItem(`${uname}_user`));
     
     if(ss_user==null){
-        location.replace('/e404');
+        location.replace('../e404');
     }
 
     let content = [{
@@ -104,9 +104,9 @@ function main() {
             attr: "href",
             input: [
                 `https://www.github.com/${ss_user.user}`,
-                `/social/?uid=${ss_user.user}`,
-                `/repos/?uid=${ss_user.user}`,
-                `/star/?uid=${ss_user.user}`,
+                `../social/?uid=${ss_user.user}`,
+                `../repos/?uid=${ss_user.user}`,
+                `../star/?uid=${ss_user.user}`,
                 `https://www.twitter.com/${ss_user.data.twitter_uname}`,
             ],
         },

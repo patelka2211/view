@@ -48,7 +48,7 @@ class root {
                     if (response.ok) {
                         return response.json();
                     }
-                    location.replace('/e404');
+                    location.replace('../e404');
                 })
                 .then((output) => {
                     let temp = {
@@ -110,7 +110,7 @@ function main_root() {
     let ss_root = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_nav`));
     
     if(ss_root==null){
-        location.replace('/e404');
+        location.replace('../e404');
     }
 
     document.getElementById('site-icon').href = ss_root.data.nav_dp;
@@ -120,7 +120,7 @@ function main_root() {
             attr: "href",
             input: (() => {
                 let temp = [];
-                let paths = ["/user", "/repos", "/social", "/star"];
+                let paths = ["../user", "../repos", "../social", "../star"];
 
                 paths.forEach((path) => {
                     temp.push(`${path}/?uid=${ss_root.user}`);

@@ -35,7 +35,7 @@ class repos {
                     if (response.ok) {
                         return response.json();
                     }
-                    location.replace('/e404');
+                    location.replace('../e404');
                 })
                 .then((output) => {
                     let temp_list = [];
@@ -48,7 +48,7 @@ class repos {
                             repo_url: element.html_url,
                             owner: element.owner.login,
                             owner_url: (() => {
-                                return `/user/?uid=${element.owner.login}`;
+                                return `../user/?uid=${element.owner.login}`;
                             })(),
                             gh_page: (() => {
                                 if (element.has_pages) {
@@ -98,7 +98,7 @@ function main_repos() {
     let ss_repos = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_repos`));
 
     if(ss_repos==null){
-        location.replace('/e404');
+        location.replace('../e404');
     }
 
     if (ss_repos.data.length == 0) {

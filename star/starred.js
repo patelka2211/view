@@ -35,7 +35,7 @@ class starred {
                     if (response.ok) {
                         return response.json();
                     }
-                    location.replace('/e404');
+                    location.replace('../e404');
                 })
                 .then((output) => {
                     let temp_list = [];
@@ -49,7 +49,7 @@ class starred {
                             owner: element.owner.login,
                             // owner_url: element.owner.html_url,
                             owner_url: (() => {
-                                return `/user/?uid=${element.owner.login}`;
+                                return `../user/?uid=${element.owner.login}`;
                             })(),
                             gh_page: (() => {
                                 if (element.has_pages) {
@@ -99,7 +99,7 @@ function main_star() {
     let ss_star = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_star`));
 
     if(ss_star==null){
-        location.replace('/e404');
+        location.replace('../e404');
     }
 
     if (ss_star.data.length == 0) {
