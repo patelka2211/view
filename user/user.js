@@ -1,3 +1,5 @@
+document.title = `${uname}/about`;
+
 class user {
     constructor(uname) {
         this.uname = uname;
@@ -33,7 +35,7 @@ class user {
                     if (response.ok) {
                         return response.json();
                     }
-                    location.replace("/e404");
+                    location.replace('/e404');
                 })
                 .then((output) => {
                     let temp = {
@@ -91,54 +93,57 @@ if (!sessionStorage.hasOwnProperty(`${uname}_user`)) {
 }
 
 function main() {
-    let ss = JSON.parse(sessionStorage.getItem(`${uname}_user`));
-    console.log(ss);
-    console.log('from user');
+    let ss_user = JSON.parse(sessionStorage.getItem(`${uname}_user`));
+    
+    if(ss_user==null){
+        location.replace('/e404');
+    }
+
     let content = [{
             class: "links",
             attr: "href",
             input: [
-                `https://www.github.com/${ss.user}`,
-                `social/?uid=${ss.user}`,
-                `repos/?uid=${ss.user}`,
-                `star/?uid=${ss.user}`,
-                `https://www.twitter.com/${ss.data.twitter_uname}`,
+                `https://www.github.com/${ss_user.user}`,
+                `social/?uid=${ss_user.user}`,
+                `repos/?uid=${ss_user.user}`,
+                `star/?uid=${ss_user.user}`,
+                `https://www.twitter.com/${ss_user.data.twitter_uname}`,
             ],
         },
         {
             id: "profile_pic",
             attr: "src",
-            input: ss.data.profile_pic,
+            input: ss_user.data.profile_pic,
         },
         {
             id: "gh-uname",
             attr: "innerText",
-            input: ss.data.uname,
+            input: ss_user.data.uname,
         },
         {
             id: "followers",
             attr: "innerText",
-            input: ss.data.followers_count,
+            input: ss_user.data.followers_count,
         },
         {
             id: "following",
             attr: "innerText",
-            input: ss.data.following_count,
+            input: ss_user.data.following_count,
         },
         {
             id: "repositories",
             attr: "innerText",
-            input: ss.data.repository_count,
+            input: ss_user.data.repository_count,
         },
         {
             id: "twtr-uname",
             attr: "innerText",
-            input: ss.data.twitter_uname,
+            input: ss_user.data.twitter_uname,
         },
         {
             id: "gh-bio",
             attr: "innerText",
-            input: ss.data.bio,
+            input: ss_user.data.bio,
         },
     ];
 
@@ -158,16 +163,14 @@ function main() {
     });
 
     let twtr = document.getElementById("twtr-vsblt");
-    if (ss.data.twitter_uname != "") {
+    if (ss_user.data.twitter_uname != "") {
         twtr.style.display = "flex";
     }
 
     let bio = document.getElementById("gh-bio");
     let separator = document.getElementById("separator");
-    if (ss.data.bio != "") {
+    if (ss_user.data.bio != "") {
         bio.style.display = "flex";
         separator.style.display = "flex";
     }
-
-    document.title = `${ss.data.uname} | About`;
 }

@@ -1,3 +1,5 @@
+document.title = `${uname}/starred`;
+
 class starred {
     constructor(uname) {
         this.uname = uname;
@@ -45,10 +47,10 @@ class starred {
                             })(),
                             repo_url: element.html_url,
                             owner: element.owner.login,
-                            owner_url: element.owner.html_url,
-                            // owner_url: (() => {
-                            //     return `user/?=${element.owner.login}`;
-                            // })(),
+                            // owner_url: element.owner.html_url,
+                            owner_url: (() => {
+                                return `user/?uid=${element.owner.login}`;
+                            })(),
                             gh_page: (() => {
                                 if (element.has_pages) {
                                     return `https://${element.owner.login}.github.io/${element.name}`;
@@ -95,7 +97,10 @@ if (!sessionStorage.hasOwnProperty(`${uid_to_json_key(uname)}_star`)) {
 
 function main_star() {
     let ss_star = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_star`));
-    console.log(ss_star);
+
+    if(ss_star==null){
+        location.replace('/e404');
+    }
 
     if (ss_star.data.length == 0) {
         let nothing_msg = document.getElementById('no_repo_msg');
@@ -182,6 +187,4 @@ function main_star() {
                                         </div>
                                     </div>`;
     });
-
-    document.title = `Starred by ${uname}`;
 }

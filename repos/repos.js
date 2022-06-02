@@ -1,3 +1,5 @@
+document.title = `${uname}/repos`;
+
 class repos {
     constructor(uname) {
         this.uname = uname;
@@ -45,10 +47,9 @@ class repos {
                             })(),
                             repo_url: element.html_url,
                             owner: element.owner.login,
-                            owner_url: element.owner.html_url,
-                            // owner_url: (() => {
-                            //     return `user/?=${element.owner.login}`;
-                            // })(),
+                            owner_url: (() => {
+                                return `user/?uid=${element.owner.login}`;
+                            })(),
                             gh_page: (() => {
                                 if (element.has_pages) {
                                     return `https://${element.owner.login}.github.io/${element.name}`;
@@ -95,7 +96,10 @@ if (!sessionStorage.hasOwnProperty(`${uid_to_json_key(uname)}_repos`)) {
 
 function main_repos() {
     let ss_repos = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_repos`));
-    console.log(ss_repos);
+
+    if(ss_repos==null){
+        location.replace('/e404');
+    }
 
     if (ss_repos.data.length == 0) {
         let nothing_msg = document.getElementById('no_repo_msg');
@@ -182,6 +186,4 @@ function main_repos() {
                                         </div>
                                     </div>`;
     });
-
-    document.title = `Repositories by ${uname}`
 }

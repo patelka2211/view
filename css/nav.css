@@ -3,7 +3,7 @@
   --primary: rgb(255, 255, 255);
   --primary-o8: #ffffffcc;
   --highlight: #1673f0;
-  --highlight-o_32: rgba(31, 142, 247.5, 0.16);
+  --highlight-o_24: rgba(31, 142, 247.5, 0.24);
   --color-dim: #6c7780;
   --color-attract: #050401;
   --separator-color: rgba(132, 131.5, 135, 0.4);
@@ -13,7 +13,7 @@
   --primary: #141219;
   --primary-o8: #131118cc;
   --highlight: #28a9ff;
-  --highlight-o_32: rgba(31, 142, 247.5, 0.16);
+  --highlight-o_24: rgba(31, 142, 247.5, 0.24);
   --color-dim: #908c91;
   --color-attract: #e8eee7;
   --separator-color: rgba(132, 131.5, 135, 0.4);

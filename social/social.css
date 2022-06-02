@@ -13,60 +13,6 @@
           align-items: center;
 }
 
-.main .container .wait {
-  color: var(--color-attract);
-  font-size: 1.6rem;
-  width: 100%;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main .container .wait.hide {
-  display: none;
-}
-
-.main .container .no_data .space {
-  height: 8vh;
-}
-
-.main .container .no_data .msg {
-  text-align: center;
-  margin: 0 5px;
-  height: 92vh;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.main .container .no_data .msg span span {
-  color: var(--color-attract);
-}
-
-.main .container .no_data.hide {
-  display: none;
-}
-
 .main .container .options-container {
   background-color: var(--primary-o8);
   -webkit-backdrop-filter: blur(20px);
@@ -107,8 +53,8 @@
 }
 
 .main .container .options-container .options input + label {
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
   border-radius: 100vh;
   -webkit-transition: border-color 0.4s ease, color 0.4s ease;
   transition: border-color 0.4s ease, color 0.4s ease;
@@ -124,13 +70,11 @@
 }
 
 .main .container .options-container .options input:checked + label {
-  -webkit-backdrop-filter: blur(100px);
-          backdrop-filter: blur(100px);
   -webkit-transition: background-color 0.4s ease, color 0.4s ease;
   transition: background-color 0.4s ease, color 0.4s ease;
   border-radius: 100vh;
   color: var(--highlight);
-  background-color: var(--highlight-o_32);
+  background-color: var(--highlight-o_24);
   padding: 1vh 1.6vh;
 }
 
@@ -148,6 +92,33 @@
   max-width: 75vh;
 }
 
+.main .container .content .no_data_and_wait .msg {
+  text-align: center;
+  margin: 0 5px;
+  height: 92vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.main .container .content .no_data_and_wait .msg span span {
+  color: var(--color-attract);
+}
+
+.main .container .content .no_data_and_wait.hide {
+  display: none;
+}
+
 .main .container .content .cards .card {
   margin: 10px 0;
   display: -webkit-box;
@@ -161,6 +132,7 @@
 
 .main .container .content .cards .card .profile_pic a {
   height: 32vh;
+  width: 32vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,16 +226,16 @@
   border-color: var(--highlight);
 }
 
+.main .container .content .cards.hide {
+  display: none;
+}
+
 .main .container .content .space {
   height: 8vh;
 }
 
 .main .container .content .end {
   height: 0;
-}
-
-.main .container .content.hide {
-  display: none;
 }
 
 @media (max-width: 912px) {
@@ -283,6 +255,7 @@
   }
   .main .container .content .cards .card .profile_pic a {
     height: 20vh;
+    width: 20vh;
   }
   .main .container .content .cards .card .metadata .uname a {
     height: 1vh;

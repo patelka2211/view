@@ -1,3 +1,5 @@
+document.title = `${uname}/social`;
+
 class social {
     constructor(uname) {
         this.uname = uname;
@@ -35,7 +37,7 @@ class social {
                     if (response.ok) {
                         return response.json();
                     }
-                    // location.replace('/e404');
+                    location.replace('/e404');
                 })
                 .then((output) => {
                     let temp_list = [];
@@ -67,6 +69,9 @@ class social {
 
 let options = document.getElementsByName('option');
 let usp = new URLSearchParams(location.search);
+let no_data_and_wait_state = document.getElementById('no-data-wait-state');
+let no_data_msg = document.getElementById('no-data-msg');
+let cards = document.getElementById('cards-area');
 
 let obj = new social(uname);
 
@@ -110,78 +115,74 @@ function select_option(auto = false) {
             update_search_params('see', usp.get('see'));
         }
     } else {
-        // options[get_checked_id_or_index(usp.get('see'))].checked = true;
         update_search_params('see', get_checked_id_or_index());
     }
-
-    return usp.get('see');
+    return get_checked_id_or_index();
 }
-
-let wait_state = document.getElementById('wait-state');
-let options_container = document.getElementById('optinos_container');
-let no_data_state = document.getElementById('no-data-state');
-let no_data_msg = document.getElementById('no-data-msg');
-let content = document.getElementById('main-content');
-let cards = document.getElementById('cards-area');
-
 
 function update_cards(tab) {
     let ss_tab = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_${tab}`));
+    
+    if(ss_tab==null){
+        location.replace('/e404');
+    }
+    
     if (ss_tab.data.length == 0) {
-        no_data_state.classList.remove('hide');
+        no_data_and_wait_state.classList.remove('hide');
+        cards.classList.add('hide');
         if (tab == 'followers') {
-            no_data_msg.innerHTML = `<span><span>${uname}</span> doesn't have any ${tab}.</span>`;
+            no_data_msg.innerHTML = `<span>@${uname}</span> doesn't have any ${tab}.`;
         }
         else if (tab == 'following') {
-            no_data_msg.innerHTML = `<span><span>${uname}</span> is not ${tab} anyone.</span>`;
+            no_data_msg.innerHTML = `<span>@${uname}</span> is not ${tab} anyone.`;
         }
+        return;
     }
-    `<div class="card">
-        <div class="profile_pic">
-            <a href="">
-                <img src="https://avatars.githubusercontent.com/u/66436609" alt="">
-            </a>
-        </div>
-        <div class="metadata">
-            <div class="uname">
-                <a href="">
-                    <span class="text">
-                        jayneel-shah18
-                    </span>
-                </a>
-            </div>
-            <div class="other">
-                <div class="followers_url">
-                    <a href="">
-                        / <span>followers</span>
-                    </a>
-                </div>
-                <div class="following_url">
-                    <a href="">
-                        / <span>following</span>
-                    </a>
-                </div>
-                <div class="repositories_url">
-                    <a href="">
-                        / <span>repos</span>
-                    </a>
-                </div>
-                <div class="starred_url">
-                    <a href="">
-                        / <span>starred</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>`;
+    no_data_and_wait_state.classList.add('hide');
+    cards.classList.remove('hide');
+    cards.innerHTML = '';
+    ss_tab.data.forEach(element => {
+        cards.innerHTML +=`<div class="card">
+                                <div class="profile_pic">
+                                    <a href="user/?uid=${element.uname}" target="_blank">
+                                        <img src="${element.profile_pic}" alt="${element.uname}'s GitHub profile picture.">
+                                    </a>
+                                </div>
+                                <div class="metadata">
+                                    <div class="uname">
+                                        <a href="user/?uid=${element.uname}" target="_blank">
+                                            <span class="text">
+                                                ${element.uname}
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="other">
+                                        <div class="followers_url">
+                                            <a href="social/?uid=${element.uname}&see=followers" target="_blank">
+                                                / <span>followers</span>
+                                            </a>
+                                        </div>
+                                        <div class="following_url">
+                                            <a href="social/?uid=${element.uname}&see=following" target="_blank">
+                                                / <span>following</span>
+                                            </a>
+                                        </div>
+                                        <div class="repositories_url">
+                                            <a href="repos/?uid=${element.uname}" target="_blank">
+                                                / <span>repos</span>
+                                            </a>
+                                        </div>
+                                        <div class="starred_url">
+                                            <a href="star/?uid=${element.uname}" target="_blank">
+                                                / <span>starred</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+    });
 }
 
 function main_social() {
-    // let ss_followers = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_followers`));
-    // console.log(ss_followers);
-    // let ss_following = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_following`));
-    // console.log(ss_following);
-    // let index;
-
-    console.log(select_option(true));
+    update_cards(select_option(true));
 }

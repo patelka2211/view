@@ -5,76 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>/social</title>
+    <link id="site-icon" rel="shortcut icon" href="assets/octocat.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="social.css">
     <script defer src="../js/script.js"></script>
     <script defer src="social.js"></script>
+
+    <!-- Primary Meta Tags -->
+    <meta class="title" name="title" content="VIEW / SOCIAL">
+    <meta class="description" name="description" content="VIEW/SOCIAL lets you view followers and following users of a GitHub user.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta class="this_url" property="og:url" content="https://patelka2211.github.io/">
+    <meta class="title" property="og:title" content="VIEW / SOCIAL">
+    <meta class="description" property="og:description"
+        content="VIEW/SOCIAL lets you view followers and following users of a GitHub user.">
+    <meta class="opengraph_image" property="og:image"
+        content="https://www.github.com/patelka2211/view/assets/octocat.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta class="this_url" property="twitter:url" content="https://patelka2211.github.io/">
+    <meta class="title" property="twitter:title" content="VIEW / SOCIAL">
+    <meta class="description" property="twitter:description"
+        content="VIEW/SOCIAL lets you view followers and following users of a GitHub user.">
+    <meta class="opengraph_image" property="twitter:image"
+        content="https://www.github.com/patelka2211/view/assets/octocat.png">
 </head>
 
 <body>
-
     <div class="main">
         <div class="container">
-            <div class="wait hide" id="wait-state">
-                <span>
-                    Wait...
-                </span>
-            </div>
             <div class="options-container" id="options_container">
                 <div class="options">
-                    <input type="radio" name="option" id="followers" onchange="select_option(false);">
+                    <input type="radio" name="option" id="followers" onchange="update_cards(select_option());">
                     <label for="followers">Followers</label>
                     <div class="space"></div>
-                    <input type="radio" name="option" id="following" onchange="select_option(false);">
+                    <input type="radio" name="option" id="following" onchange="update_cards(select_option());">
                     <label for="following">Following</label>
-                </div>
-            </div>
-            <div class="no_data hide" id="no-data-state">
-                <div class="space"></div>
-                <div class="msg" id="no-data-msg">
                 </div>
             </div>
             <div class="content" id="main-content">
                 <div class="space"></div>
-                <div class="cards" id="cards-area">
-                    <div class="card">
-                        <div class="profile_pic">
-                            <a href="">
-                                <img src="" alt="">
-                            </a>
-                        </div>
-                        <div class="metadata">
-                            <div class="uname">
-                                <a href="">
-                                    <span class="text">
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="other">
-                                <div class="followers_url">
-                                    <a href="">
-                                        / <span>followers</span>
-                                    </a>
-                                </div>
-                                <div class="following_url">
-                                    <a href="">
-                                        / <span>following</span>
-                                    </a>
-                                </div>
-                                <div class="repositories_url">
-                                    <a href="">
-                                        / <span>repos</span>
-                                    </a>
-                                </div>
-                                <div class="starred_url">
-                                    <a href="">
-                                        / <span>starred</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="no_data_and_wait" id="no-data-wait-state">
+                    <div class="msg">
+                        <span id="no-data-msg">
+                            <span>
+                                Wait...
+                            </span>
+                        </span>
                     </div>
+                </div>
+                <div class="cards hide" id="cards-area">
                 </div>
                 <div class="end"></div>
             </div>

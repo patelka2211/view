@@ -48,7 +48,7 @@ class root {
                     if (response.ok) {
                         return response.json();
                     }
-                    location.replace("/e404");
+                    location.replace('/e404');
                 })
                 .then((output) => {
                     let temp = {
@@ -108,6 +108,13 @@ if (!sessionStorage.hasOwnProperty(`${uid_to_json_key(uname)}_nav`)) {
 
 function main_root() {
     let ss_root = JSON.parse(sessionStorage.getItem(`${uid_to_json_key(uname)}_nav`));
+    
+    if(ss_root==null){
+        location.replace('/e404');
+    }
+
+    document.getElementById('site-icon').href = ss_root.data.nav_dp;
+    
     let content = [{
             class: "nav_links",
             attr: "href",
