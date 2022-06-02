@@ -48,7 +48,7 @@ class repos {
                             repo_url: element.html_url,
                             owner: element.owner.login,
                             owner_url: (() => {
-                                return `user/?uid=${element.owner.login}`;
+                                return `/user/?uid=${element.owner.login}`;
                             })(),
                             gh_page: (() => {
                                 if (element.has_pages) {

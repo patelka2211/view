@@ -104,9 +104,9 @@ function main() {
             attr: "href",
             input: [
                 `https://www.github.com/${ss_user.user}`,
-                `social/?uid=${ss_user.user}`,
-                `repos/?uid=${ss_user.user}`,
-                `star/?uid=${ss_user.user}`,
+                `/social/?uid=${ss_user.user}`,
+                `/repos/?uid=${ss_user.user}`,
+                `/star/?uid=${ss_user.user}`,
                 `https://www.twitter.com/${ss_user.data.twitter_uname}`,
             ],
         },

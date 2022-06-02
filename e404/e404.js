@@ -19,5 +19,5 @@ continue_btn.addEventListener('click', () => {
         }, 1600);
         return;
     }
-    location.replace(`user/?uid=${uname_input.value.trim()}`);
+    location.replace(`/user/?uid=${uname_input.value.trim()}`);
 });

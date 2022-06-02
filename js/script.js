@@ -120,7 +120,7 @@ function main_root() {
             attr: "href",
             input: (() => {
                 let temp = [];
-                let paths = ["user", "repos", "social", "star"];
+                let paths = ["/user", "/repos", "/social", "/star"];
 
                 paths.forEach((path) => {
                     temp.push(`${path}/?uid=${ss_root.user}`);

@@ -144,13 +144,13 @@ function update_cards(tab) {
     ss_tab.data.forEach(element => {
         cards.innerHTML +=`<div class="card">
                                 <div class="profile_pic">
-                                    <a href="user/?uid=${element.uname}" target="_blank">
+                                    <a href="/user/?uid=${element.uname}" target="_blank">
                                         <img src="${element.profile_pic}" alt="${element.uname}'s GitHub profile picture.">
                                     </a>
                                 </div>
                                 <div class="metadata">
                                     <div class="uname">
-                                        <a href="user/?uid=${element.uname}" target="_blank">
+                                        <a href="/user/?uid=${element.uname}" target="_blank">
                                             <span class="text">
                                                 ${element.uname}
                                             </span>
@@ -158,22 +158,22 @@ function update_cards(tab) {
                                     </div>
                                     <div class="other">
                                         <div class="followers_url">
-                                            <a href="social/?uid=${element.uname}&see=followers" target="_blank">
+                                            <a href="/social/?uid=${element.uname}&see=followers" target="_blank">
                                                 / <span>followers</span>
                                             </a>
                                         </div>
                                         <div class="following_url">
-                                            <a href="social/?uid=${element.uname}&see=following" target="_blank">
+                                            <a href="/social/?uid=${element.uname}&see=following" target="_blank">
                                                 / <span>following</span>
                                             </a>
                                         </div>
                                         <div class="repositories_url">
-                                            <a href="repos/?uid=${element.uname}" target="_blank">
+                                            <a href="/repos/?uid=${element.uname}" target="_blank">
                                                 / <span>repos</span>
                                             </a>
                                         </div>
                                         <div class="starred_url">
-                                            <a href="star/?uid=${element.uname}" target="_blank">
+                                            <a href="/star/?uid=${element.uname}" target="_blank">
                                                 / <span>starred</span>
                                             </a>
                                         </div>

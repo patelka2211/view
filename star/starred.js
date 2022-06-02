@@ -49,7 +49,7 @@ class starred {
                             owner: element.owner.login,
                             // owner_url: element.owner.html_url,
                             owner_url: (() => {
-                                return `user/?uid=${element.owner.login}`;
+                                return `/user/?uid=${element.owner.login}`;
                             })(),
                             gh_page: (() => {
                                 if (element.has_pages) {
