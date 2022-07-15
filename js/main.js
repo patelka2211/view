@@ -41,7 +41,7 @@ function get_data_from_api(url, return_type) {
         return XHReq.responseText;
     } catch (exception) {
         console.log(exception);
-        location.replace("./error");
+        location.replace(location.origin + "view/error");
     }
 }
 
