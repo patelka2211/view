@@ -35,13 +35,13 @@ function get_data_from_api(url, return_type) {
         XHReq.open("GET", url, false);
         XHReq.send();
         if (XHReq.status != 200) {
-            location.replace(location.origin + "view/error");
+            location.replace(location.origin + "/view/error");
         }
         if (return_type == Object) return JSON.parse(XHReq.responseText);
         return XHReq.responseText;
     } catch (exception) {
         console.log(exception);
-        location.replace(location.origin + "view/error");
+        location.replace(location.origin + "/view/error");
     }
 }
 
