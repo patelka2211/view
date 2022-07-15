@@ -1,305 +1,77 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap");
-:root {
-  --primary: rgb(255, 255, 255);
-  --primary-o8: #ffffffcc;
-  --highlight: #1673f0;
-  --highlight-o_24: rgba(31, 142, 247.5, 0.24);
-  --color-dim: #6c7780;
-  --color-attract: #050401;
-  --separator-color: rgba(132, 131.5, 135, 0.4);
-}
-
-.dark-mode {
-  --primary: #141219;
-  --primary-o8: #131118cc;
-  --highlight: #28a9ff;
-  --highlight-o_24: rgba(31, 142, 247.5, 0.24);
-  --color-dim: #908c91;
-  --color-attract: #e8eee7;
-  --separator-color: rgba(132, 131.5, 135, 0.4);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
-
-::-webkit-scrollbar {
-  width: 0.4em;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-transition: background 0.4s ease;
-  transition: background 0.4s ease;
-  background: var(--primary);
-  border-radius: 100vh;
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-transition: background 0.4s ease;
-  transition: background 0.4s ease;
-  background: var(--color-dim);
-  border-radius: 100vh;
-}
-
-@supports (scrollbar-color: var(--color-dim) var(--primary)) {
-  * {
-    -webkit-transition: scrollbar-color 0.4s ease;
-    transition: scrollbar-color 0.4s ease;
-    scrollbar-color: var(--color-dim) var(--primary);
-    scrollbar-width: thin;
-    border-radius: 100vh;
-  }
-}
-
-body {
-  background-color: var(--primary);
-}
-
-body .main {
-  position: absolute;
-  width: 84%;
-  color: var(--color-dim);
-  right: 0;
-}
-
-body .main .space {
-  height: 0;
-}
-
-body .nav {
-  -webkit-backdrop-filter: blur(0px);
-          backdrop-filter: blur(0px);
+#nav {
+  width: 100vw;
+  height: 8vh;
+  min-height: 60px;
   position: fixed;
-  width: 16%;
-  height: 100vh;
-  left: 0;
-  border-right: 0.1px solid var(--separator-color);
-}
-
-body .nav .list {
-  margin: 10px 0;
-}
-
-body .nav .list li {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  bottom: 0;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: background-color 0.4s ease;
+  background-color: var(--primary-o86);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
-
-body .nav .list li a {
-  text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
+#nav .container {
+  width: inherit;
+  height: inherit;
+  min-height: 60px;
+  max-width: 620px;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: border 0.4s ease;
-  transition: border 0.4s ease;
-  border: 1px solid var(--color-dim);
-  border-radius: 0.5rem;
-  margin: 8px 0;
-  padding: 5px 4px;
-  width: 12vw;
+  align-items: center;
+  justify-content: space-evenly;
 }
-
-body .nav .list li a .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
+#nav .container input {
+  display: none;
+}
+#nav .container input + label {
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-right: 3px;
+  flex-direction: column;
+  align-items: center;
 }
-
-body .nav .list li a .icon img {
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-}
-
-body .nav .list li a .icon svg {
-  width: 30px;
-  -webkit-transition: fill 0.4s ease;
-  transition: fill 0.4s ease;
-  fill: var(--color-dim);
-}
-
-body .nav .list li a .text {
-  font-size: 0.9rem;
-  -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
-  padding-left: 3px;
-  color: var(--color-dim);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .nav .list li a:hover {
-  border: 1px solid var(--color-attract);
-}
-
-body .nav .list li a:hover .icon svg {
-  fill: var(--color-attract);
-}
-
-body .nav .list li a:hover .text {
+#nav .container input + label .vectors {
+  transition: color 0.4s ease-out;
   color: var(--color-attract);
 }
-
-body .nav .list li a.selected {
-  border: 1.6px solid var(--highlight);
+#nav .container input + label .vectors #user-dp {
+  width: 26px;
+  height: 26px;
+  border-radius: 100px;
 }
-
-body .nav .list li a.selected .icon svg {
-  fill: var(--highlight);
-}
-
-body .nav .list li a.selected .text {
-  color: var(--highlight);
-}
-
-body .nav .list li a.about {
-  padding-top: 0px;
-  padding-left: 0px;
-  border: none;
-}
-
-body .nav .list li a.about .icon svg {
-  width: 16px;
-}
-
-body .nav .list li a.about .icon svg #outline,
-body .nav .list li a.about .icon svg #excl_line {
-  -webkit-transition: stroke 0.4s ease;
-  transition: stroke 0.4s ease;
-  stroke: var(--color-dim);
-}
-
-body .nav .list li a.about .icon svg #excl_circle {
-  -webkit-transition: fill 0.4s ease;
-  transition: fill 0.4s ease;
+#nav .container input + label .vectors .svg-icon {
+  width: 26px;
+  height: 26px;
+  transition: fill 0.4s ease-out;
   fill: var(--color-dim);
 }
-
-body .nav .list li a.about:hover .icon svg #outline,
-body .nav .list li a.about:hover .icon svg #excl_line {
-  stroke: var(--color-attract);
+#nav .container input + label .activity-dot {
+  transition: width 0.4s ease-in-out, height 0.4s ease-in-out, background-color 0.4s ease-out;
+  width: 0;
+  height: 0;
+  border-radius: 10px;
+  background-color: transparent;
 }
-
-body .nav .list li a.about:hover .icon svg #excl_circle {
+#nav .container input + label:hover {
+  cursor: pointer;
+}
+#nav .container input + label:hover .vectors .svg-icon {
+  transition: fill 0.4s ease-out;
   fill: var(--color-attract);
 }
-
-body .nav .list li a.about.selected .icon svg #outline,
-body .nav .list li a.about.selected .icon svg #excl_line {
-  stroke: var(--highlight);
+#nav .container input + label:hover .activity-dot {
+  width: 12px;
+  height: 3px;
+  transition: background-color 0.4s ease-out;
+  background-color: var(--highlight);
 }
-
-body .nav .list li a.about.selected .icon svg #excl_circle {
-  fill: var(--highlight);
+#nav .container input:checked + label .activity-dot {
+  transition: width 0.4s ease-out, height 0.4s ease-out, background-color 0.4s ease-out;
+  width: 4px;
+  height: 4px;
+  background-color: #fe0535;
 }
-
-@media (max-width: 912px) {
-  body {
-    background-color: var(--primary);
-  }
-  body .main {
-    position: absolute;
-    width: 100%;
-    top: 0;
-  }
-  body .main .space {
-    height: 8vh;
-  }
-  body .nav {
-    background-color: var(--primary-o8);
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-    position: fixed;
-    width: 100%;
-    height: 8vh;
-    bottom: 0;
-    border-top: 0.1px solid var(--separator-color);
-  }
-  body .nav .list {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    height: inherit;
-    margin-top: 0;
-  }
-  body .nav .list li a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    border-radius: 100%;
-    width: inherit;
-    border: none;
-  }
-  body .nav .list li a .icon {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  body .nav .list li a .icon .dot {
-    display: none;
-    width: 4px;
-    height: 4px;
-    border-radius: 100%;
-    margin-top: 3px;
-    background-color: var(--highlight);
-  }
-  body .nav .list li a .text {
-    display: none;
-  }
-  body .nav .list li a:hover {
-    border: none;
-  }
-  body .nav .list li a.selected {
-    border: none;
-  }
-  body .nav .list li a.selected .icon .dot {
-    display: block;
-  }
-  body .nav .list li a.about .icon svg {
-    width: 30px;
-  }
-}
-/*# sourceMappingURL=nav.css.map */
+#nav .container input:checked + label:hover .vectors .svg-icon {
+  transition: fill 0.4s ease-out;
+  fill: var(--color-dim);
+}/*# sourceMappingURL=nav.css.map */

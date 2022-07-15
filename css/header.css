@@ -1,0 +1,85 @@
+#header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 8vh;
+  min-height: 60px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transition: background-color 0.4s ease;
+  background-color: var(--primary-o86);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#header .content {
+  width: inherit;
+  max-width: 620px;
+  height: inherit;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#header .content .header-repo {
+  padding: 2vh;
+  font-size: 1.6rem;
+  text-align: center;
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+}
+#header .content .header-social input {
+  display: none;
+}
+#header .content .header-social input + label {
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  transition: color 0.4s ease, background-color 0.4s ease;
+  padding: 8px 12px;
+  margin: 0 4px;
+  color: var(--color-dim);
+  border-radius: 100px;
+}
+#header .content .header-social input + label:hover {
+  cursor: pointer;
+  color: var(--color-attract);
+  background-color: var(--border-color);
+}
+#header .content .header-social input:checked + label {
+  color: var(--highlight);
+  background-color: var(--highlight-o86);
+}
+#header .content .header-share {
+  font-size: 1.4rem;
+}
+#header .content .header-share .author-creds {
+  text-decoration: none;
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+  display: flex;
+  align-items: center;
+}
+#header .content .header-share .author-creds svg {
+  margin: 0 4px;
+  width: 30px;
+  height: 20px;
+}
+#header .content .header-share .author-creds svg .tricolor-orange {
+  fill: #ff9933;
+}
+#header .content .header-share .author-creds svg .tricolor-white {
+  fill: #fff;
+}
+#header .content .header-share .author-creds svg .tricolor-green {
+  fill: #128807;
+}
+#header .content .header-share .author-creds svg .tricolor-chakra-blue {
+  fill: #000088;
+}
+#header .content .header-share .author-creds .text .author {
+  background: linear-gradient(45deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+  -webkit-background-clip: text;
+  color: transparent;
+}/*# sourceMappingURL=header.css.map */

@@ -1,244 +1,87 @@
-@import 'colors';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
-
-$transition-time:0.4s;
-::-webkit-scrollbar {
-    width: 0.4em;
-}
-
- ::-webkit-scrollbar-track {
-    transition: background $transition-time ease;
-    background: var(--primary);
-    border-radius: 100vh;
-}
-
- ::-webkit-scrollbar-thumb {
-    transition: background $transition-time ease;
-    background: var(--color-dim);
-    border-radius: 100vh;
-}
-
-@supports (scrollbar-color: var(--color-dim) var(--primary)) {
-    * {
-        transition: scrollbar-color $transition-time ease;
-        scrollbar-color: var(--color-dim) var(--primary);
-        scrollbar-width: thin;
-        border-radius: 100vh;
-    }
-}
-
-body {
-    background-color: var(--primary);
-    .main {
-        position: absolute;
-        width: 84%;
-        color: var(--color-dim);
-        right: 0;
-        .space {
-            height: 0;
-        }
-    }
-    .nav {
-        backdrop-filter: blur(0px);
-        position: fixed;
-        width: 16%;
-        height: 100vh;
-        left: 0;
-        border-right: 0.1px solid var(--separator-color);
-        .list {
-            margin: 10px 0;
-            li {
+$max-width: 620px;
+$transition-time: 0.4s;
+#nav {
+    width: 100vw;
+    height: 8vh;
+    min-height: 60px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: background-color $transition-time ease;
+    background-color: var(--primary-o86);
+    backdrop-filter: blur(10px);
+    .container {
+        width: inherit;
+        height: inherit;
+        min-height: 60px;
+        max-width: $max-width;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        input {
+            display: none;
+            + label {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                a {
-                    text-decoration: none;
-                    display: flex;
-                    align-items: center;
-                    transition: border 0.4s ease;
-                    border: 1px solid var(--color-dim);
-                    border-radius: 0.5rem;
-                    margin: 8px 0;
-                    padding: 5px 4px;
-                    width: 12vw;
-                    .icon {
-                        // width: 30px;
-                        $img-size: 30px;
-                        display: flex;
-                        align-items: center;
-                        padding-right: 3px;
-                        img {
-                            width: $img-size;
-                            height: $img-size;
-                            border-radius: 100%;
-                        }
-                        svg {
-                            width: $img-size;
-                            transition: fill 0.4s ease;
-                            fill: var(--color-dim);
+                .vectors {
+                    transition: color $transition-time ease-out;
+                    color: var(--color-attract);
+                    #user-dp {
+                        width: 26px;
+                        height: 26px;
+                        border-radius: 100px;
+                    }
+                    .svg-icon {
+                        width: 26px;
+                        height: 26px;
+                        transition: fill $transition-time ease-out;
+                        fill: var(--color-dim);
+                    }
+                }
+                .activity-dot {
+                    transition: width $transition-time ease-in-out,
+                        height $transition-time ease-in-out,
+                        background-color $transition-time ease-out;
+                    width: 0;
+                    height: 0;
+                    border-radius: 10px;
+                    background-color: transparent;
+                }
+                &:hover {
+                    cursor: pointer;
+                    .vectors {
+                        .svg-icon {
+                            transition: fill $transition-time ease-out;
+                            fill: var(--color-attract);
                         }
                     }
-                    .text {
-                        font-size: 0.9rem;
-                        transition: color 0.4s ease;
-                        padding-left: 3px;
-                        color: var(--color-dim);
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        display: flex;
-                    }
-                    &:hover {
-                        border: 1px solid var(--color-attract);
-                        .icon {
-                            svg {
-                                fill: var(--color-attract);
-                            }
-                        }
-                        .text {
-                            color: var(--color-attract);
-                        }
-                    }
-                    &.selected {
-                        // border-color: var(--highlight);
-                        border: 1.6px solid var(--highlight);
-                        .icon {
-                            svg {
-                                fill: var(--highlight);
-                            }
-                        }
-                        .text {
-                            color: var(--highlight);
-                        }
-                    }
-                    &.about {
-                        // margin-top: 0px;
-                        padding-top: 0px;
-                        padding-left: 0px;
-                        border: none;
-                        .icon {
-                            $img-size: 16px;
-                            svg {
-                                width: $img-size;
-                                // transition: fill 0.4s ease, stroke 0.4s ease;
-                                #outline,
-                                #excl_line {
-                                    transition: stroke 0.4s ease;
-                                    stroke: var(--color-dim);
-                                }
-                                #excl_circle {
-                                    transition: fill 0.4s ease;
-                                    fill: var(--color-dim);
-                                }
-                            }
-                        }
-                        &:hover {
-                            .icon {
-                                svg {
-                                    #outline,
-                                    #excl_line {
-                                        stroke: var(--color-attract);
-                                    }
-                                    #excl_circle {
-                                        fill: var(--color-attract);
-                                    }
-                                }
-                            }
-                        }
-                        &.selected {
-                            .icon {
-                                svg {
-                                    #outline,
-                                    #excl_line {
-                                        stroke: var(--highlight);
-                                    }
-                                    #excl_circle {
-                                        fill: var(--highlight);
-                                    }
-                                }
-                            }
-                        }
+                    .activity-dot {
+                        width: 12px;
+                        height: 3px;
+                        transition: background-color $transition-time ease-out;
+                        background-color: var(--highlight);
                     }
                 }
             }
-        }
-    }
-}
-
-@media (max-width:912px) {
-    body {
-        background-color: var(--primary);
-        .main {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            .space {
-                height: 8vh;
-            }
-        }
-        .nav {
-            background-color: var(--primary-o8);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            width: 100%;
-            height: 8vh;
-            bottom: 0;
-            border-top: 0.1px solid var(--separator-color);
-            .list {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-                height: inherit;
-                margin-top: 0;
-                li {
-                    // background-color: white;
-                    a {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: space-around;
-                        border-radius: 100%;
-                        width: inherit;
-                        // border: 1px solid red;
-                        .icon {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            .dot {
-                                display: none;
-                                width: 4px;
-                                height: 4px;
-                                border-radius: 100%;
-                                margin-top: 3px;
-                                background-color: var(--highlight);
-                            }
-                        }
-                        border: none;
-                        .text {
-                            display: none;
-                        }
-                        &:hover {
-                            border: none;
-                        }
-                        &.selected {
-                            border: none;
-                            .icon {
-                                .dot {
-                                    display: block;
-                                }
-                            }
-                        }
-                        &.about {
-                            .icon {
-                                $img-size: 30px;
-                                svg {
-                                    width: $img-size;
-                                }
+            &:checked {
+                + label {
+                    .activity-dot {
+                        transition: width $transition-time ease-out,
+                            height $transition-time ease-out,
+                            background-color $transition-time ease-out;
+                        width: 4px;
+                        height: 4px;
+                        background-color: #fe0535;
+                    }
+                    &:hover {
+                        .vectors {
+                            .svg-icon {
+                                transition: fill $transition-time ease-out;
+                                fill: var(--color-dim);
                             }
                         }
                     }

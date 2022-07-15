@@ -1,0 +1,584 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  transition: background-color 0.4s ease;
+  background-color: var(--primary);
+}
+#root .space {
+  height: 9vh;
+  min-height: 68px;
+  background-color: transparent;
+}
+#root .root-repo {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#root .root-repo .repo-card {
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.4s ease;
+  box-shadow: 0 4px 16px 0 var(--shadow);
+  border-radius: 14px;
+}
+#root .root-repo .repo-card .repo-image {
+  width: 90vw;
+  height: 45vw;
+  max-width: 620px;
+  max-height: 310px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(../assets/null-repo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#root .root-repo .repo-card .repo-image img {
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+  border-radius: 13px;
+}
+#root .root-repo .repo-card .repo-image.has-external-links {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+#root .root-repo .repo-card .repo-image.has-external-links img {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+#root .root-repo .repo-card .external-links {
+  width: 100%;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 12px 0;
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+}
+#root .root-repo .repo-card .external-links a {
+  text-decoration: none;
+  padding: 3.2px 6.4px;
+  transition: border 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+  border: 1px solid var(--border-color);
+  border-radius: 6.4px;
+  background-color: var(--primary);
+  color: var(--color-attract);
+}
+#root .root-repo .repo-card .external-links a:hover {
+  cursor: pointer;
+  color: var(--highlight);
+  background-color: var(--highlight-o86);
+}
+#root .root-profile {
+  width: 100%;
+  max-width: 620px;
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#root .root-profile .user-image-div {
+  width: 20vh;
+  min-width: 152px;
+  height: 20vh;
+  min-height: 152px;
+  border-radius: 2000vh;
+  margin: 15px 0;
+  transition: height 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#root .root-profile .user-image-div .user-image {
+  width: inherit;
+  min-width: 152px;
+  height: inherit;
+  min-height: 152px;
+  border-radius: 2000vh;
+}
+#root .root-profile .external-links {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+}
+#root .root-profile .external-links a {
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin: 0 1vw;
+}
+#root .root-profile .external-links a svg {
+  transition: fill 0.4s ease;
+  width: 20px;
+  height: 20px;
+  fill: var(--color-attract);
+  margin-right: 4px;
+}
+#root .root-profile .external-links a .text {
+  margin-left: 4px;
+}
+#root .root-profile .external-links a:hover {
+  cursor: pointer;
+  color: var(--highlight);
+}
+#root .root-profile .external-links a:hover svg {
+  fill: var(--highlight);
+}
+#root .root-profile .social-links {
+  margin-bottom: 15px;
+  transition: color 0.4s ease;
+  color: var(--color-dim);
+}
+#root .root-profile .social-links span {
+  transition: color 0.4s ease;
+}
+#root .root-profile .social-links span span {
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+}
+#root .root-profile .social-links span:hover {
+  cursor: pointer;
+  color: var(--highlight);
+}
+#root .root-profile .social-links span:hover span {
+  transition: color 0.4s ease;
+  color: var(--highlight);
+}
+#root .root-profile .repo-link {
+  margin-bottom: 15px;
+  transition: color 0.4s ease;
+  color: var(--color-dim);
+}
+#root .root-profile .repo-link span {
+  transition: color 0.4s ease;
+}
+#root .root-profile .repo-link span span {
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+}
+#root .root-profile .repo-link span:hover {
+  cursor: pointer;
+  color: var(--highlight);
+}
+#root .root-profile .repo-link span:hover span {
+  transition: color 0.4s ease;
+  color: var(--highlight);
+}
+#root .root-profile .star-link {
+  margin-bottom: 15px;
+  color: var(--color-dim);
+  border: 1px solid var(--border-color);
+  padding: 1.6px 3.2px;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+#root .root-profile .star-link:hover {
+  color: var(--highlight);
+  background-color: var(--highlight-o86);
+  cursor: pointer;
+}
+#root .root-profile .h-line {
+  margin-bottom: 15px;
+  width: 260px;
+  height: 2px;
+  border-radius: 1vh;
+  transition: background-color 0.4s ease;
+  background-color: var(--border-color);
+}
+#root .root-profile .user-bio {
+  text-align: center;
+  width: 84%;
+  max-width: 620px;
+  transition: color 0.4s ease;
+  color: var(--color-attract);
+}
+#root .root-social {
+  color: var(--color-attract);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#root .root-social .title {
+  width: 96%;
+  max-width: 500px;
+  font-size: xx-large;
+}
+#root .root-social .user-card {
+  margin: 12px 0;
+  width: 96vw;
+  max-width: 480px;
+  height: 96vw;
+  max-height: 480px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px 0 var(--shadow);
+  transition: box-shadow 0.4s ease;
+  background-image: url(../assets/GitHub-Mark.jpg);
+  background-size: cover;
+}
+#root .root-social .user-card .space {
+  height: 75%;
+  width: 100%;
+  display: flex;
+}
+#root .root-social .user-card .space .user-profile-link {
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+#root .root-social .user-card .info {
+  height: 25%;
+  width: 100%;
+  transition: background-color 0.4s ease;
+  background-color: var(--primary-o9);
+  -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(16px);
+  border-bottom-left-radius: 12.8px;
+  border-bottom-right-radius: 12.8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#root .root-social .user-card .info .uname-uid-and-follow-btn {
+  padding-left: 10px;
+  padding-right: 12px;
+  padding-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#root .root-social .user-card .info .uname-uid-and-follow-btn .uid .id {
+  transition: color 0.4s ease, font-size 0.4s ease;
+  padding: 8px 0;
+  font-size: 1.6rem;
+  color: var(--color-attract);
+}
+#root .root-social .user-card .info .uname-uid-and-follow-btn .follow-btn {
+  text-decoration: none;
+  padding: 4px 6.4px;
+  color: var(--highlight);
+  background-color: var(--highlight-o86);
+  border-radius: 6px;
+}
+#root .root-social .user-card .info .uname-uid-and-follow-btn .follow-btn:hover {
+  cursor: pointer;
+}
+#root .root-social .user-card .info .externals {
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#root .root-social .user-card .info .externals .line {
+  height: 20px;
+  width: 1px;
+  border-radius: 20px;
+  transition: background-color 0.4s ease;
+  background-color: var(--color-dim);
+}
+#root .root-social .user-card .info .externals .links {
+  text-decoration: none;
+}
+#root .root-social .user-card .info .externals .links .svg-icon {
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  fill: var(--color-dim);
+  border-radius: 4px;
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-social .user-card .info .externals .links .svg-icon:hover {
+  background-color: var(--highlight-o86);
+  fill: var(--highlight);
+}
+#root .root-social .warning {
+  font-size: 0.8rem;
+  color: var(--color-dim);
+  margin: 10px;
+  width: 96%;
+  max-width: 500px;
+}
+#root .root-share {
+  width: 96%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#root .root-share .title {
+  font-size: 1.4rem;
+  color: var(--color-attract);
+  text-align: center;
+  margin-bottom: 26px;
+}
+#root .root-share .title span {
+  color: var(--highlight);
+}
+#root .root-share #other-options {
+  margin-bottom: 26px;
+  transition: color 0.4s ease;
+  color: var(--color-dim);
+  display: flex;
+  align-items: center;
+}
+#root .root-share #other-options .line {
+  width: 50px;
+  height: 1px;
+  border-radius: 10px;
+  transition: background-color 0.4s ease;
+  background-color: var(--color-dim);
+}
+#root .root-share #other-options .text {
+  margin: 0 8px;
+  text-align: center;
+}
+#root .root-share #other-options.error .text {
+  transition: color 0.4s ease;
+  color: #ff5050;
+}
+#root .root-share #other-options.error .line {
+  transition: background-color 0.4s ease, width 0.4s ease;
+  background-color: transparent;
+  width: 0;
+}
+#root .root-share .share-option {
+  margin-bottom: 26px;
+  width: 84%;
+  max-width: 220px;
+  background-color: var(--uid-box-color);
+  box-shadow: 0 2px 16px 0 var(--shadow);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: var(--color-dim);
+  transition: border 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  align-items: center;
+}
+#root .root-share .share-option input {
+  margin-left: 4px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  background-color: var(--uid-box-color);
+  color: var(--color-attract);
+  border: none;
+}
+#root .root-share .share-option input:focus {
+  outline: none;
+}
+#root .root-share .share-option input::-moz-placeholder {
+  -moz-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: var(--color-dim);
+}
+#root .root-share .share-option input:-ms-input-placeholder {
+  -ms-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: var(--color-dim);
+}
+#root .root-share .share-option input::placeholder {
+  transition: color 0.4s ease;
+  color: var(--color-dim);
+}
+#root .root-share .share-btns {
+  display: flex;
+  align-items: center;
+  margin: 2px 0;
+  margin-bottom: 26px;
+}
+#root .root-share .share-btns .share-on-social-btn {
+  width: 10vw;
+  height: 10vw;
+  max-width: 46px;
+  max-height: 46px;
+  border-radius: 100px;
+  transition: box-shadow 0.8s ease;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0);
+  margin: 0 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#root .root-share .share-btns .share-on-social-btn:hover {
+  box-shadow: 0 8px 16px 0 var(--shadow);
+}
+#root .root-share .share-btns .share-on-social-btn .svg-icon {
+  transition: fill 0.4s ease;
+  width: 26px;
+  height: 26px;
+  fill: var(--color-dim);
+}
+#root .root-share .share-btns .share-on-social-btn .svg-icon .inner-vector {
+  transition: fill 0.4s ease;
+  fill: var(--primary);
+}
+#root .root-share .share-btns:hover {
+  cursor: pointer;
+}
+#root .root-share .share-btns #mail-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #mail-btn:hover {
+  background-color: var(--highlight);
+}
+#root .root-share .share-btns #mail-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#root .root-share .share-btns #lnkdn-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #lnkdn-btn .inner-vector {
+  transition: fill 0.4s ease;
+  fill: var(--border-color);
+}
+#root .root-share .share-btns #lnkdn-btn:hover {
+  background-color: #0a66c2;
+}
+#root .root-share .share-btns #lnkdn-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#root .root-share .share-btns #lnkdn-btn:hover .svg-icon .inner-vector {
+  transition: fill 0.4s ease;
+  fill: #0a66c2;
+}
+#root .root-share .share-btns #wa-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #wa-btn:hover {
+  background-color: #25d366;
+}
+#root .root-share .share-btns #wa-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#root .root-share .share-btns #fb-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #fb-btn:hover {
+  background-color: #17a9fd;
+}
+#root .root-share .share-btns #fb-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#root .root-share .share-btns #twt-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #twt-btn:hover {
+  background-color: #1d9bf0;
+}
+#root .root-share .share-btns #twt-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#root .root-share .share-btns #spct-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #spct-btn:hover {
+  background-color: #fffc00;
+}
+#root .root-share .share-btns #spct-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(0, 0, 0, 0.8);
+}
+#root .root-share .share-btns #rdt-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+}
+#root .root-share .share-btns #rdt-btn:hover {
+  background-color: #ff4500;
+}
+#root .root-share .share-btns #rdt-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: rgba(255, 255, 255, 0.8);
+}
+#root .root-share .share-btns #koo-btn {
+  transition: background-color 0.4s ease, fill 0.4s ease;
+  fill: var(--primary);
+}
+#root .root-share .share-btns #koo-btn .svg-icon {
+  transition: fill 0.4s ease;
+  fill: var(--color-dim);
+}
+#root .root-share .share-btns #koo-btn .svg-icon .inner-vector {
+  transition: fill 0.4s ease;
+  fill: var(--border-color);
+}
+#root .root-share .share-btns #koo-btn:hover {
+  background-color: #facd00;
+}
+#root .root-share .share-btns #koo-btn:hover .svg-icon {
+  transition: fill 0.4s ease;
+  fill: black;
+}
+#root .root-share .share-btns #koo-btn:hover .svg-icon .inner-vector {
+  transition: fill 0.4s ease;
+  fill: rgba(0, 0, 0, 0);
+}
+#root .root-share .bottom-line {
+  width: 96%;
+  max-width: 500px;
+  height: 1px;
+  border-radius: 10px;
+  background-color: var(--color-dim);
+  margin-bottom: 26px;
+}
+#root .root-share .promote-title {
+  margin-bottom: 26px;
+  text-align: center;
+}
+#root .root-share .promote-title a {
+  text-decoration: none;
+  color: var(--color-attract);
+  font-size: 1.4rem;
+}
+#root .root-share .promote-title a span {
+  background: linear-gradient(35deg, #0088ff -28.62%, #a033ff 36.39%, #ff5c87 98.74%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#root .root-share .view-repo {
+  width: 90vw;
+  height: 45vw;
+  max-width: 500px;
+  max-height: 250px;
+  background-image: url(../assets/null-repo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px 0 var(--shadow);
+}
+#root .root-share .view-repo a {
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+  border-radius: 13px;
+}
+#root .root-share .view-repo a img {
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+  border-radius: 13px;
+}/*# sourceMappingURL=root.css.map */

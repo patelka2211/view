@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <link id="favicon" rel="shortcut icon" href="" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/final.css" />
+        <script defer src="./js/main.js"></script>
+
+        <!-- Primary Meta Tags -->
+        <meta name="title" content="patelka2211 / view" />
+        <meta
+            name="description"
+            content="View information about GitHub users."
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://patelka2211.github.io/view" />
+        <meta property="og:title" content="patelka2211 / view" />
+        <meta
+            property="og:description"
+            content="View information about GitHub users."
+        />
+        <meta
+            property="og:image"
+            content="https://www.github.com/patelka2211/view/assets/opengraph.jpg"
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://patelka2211.github.io/view"
+        />
+        <meta property="twitter:title" content="patelka2211 / view" />
+        <meta
+            property="twitter:description"
+            content="View information about GitHub users."
+        />
+        <meta
+            property="twitter:image"
+            content="https://www.github.com/patelka2211/view/assets/opengraph.jpg"
+        />
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="root"></div>
+        <div id="nav">
+            <div class="container">
+                <input type="radio" name="nav-actions" id="profile-btn" />
+                <label for="profile-btn">
+                    <div class="vectors">
+                        <img
+                            id="user-dp"
+                            src="./assets/GitHub-Mark.jpg"
+                            alt=""
+                        />
+                    </div>
+                    <div class="activity-dot"></div>
+                </label>
+                <input type="radio" name="nav-actions" id="repo-btn" />
+                <label for="repo-btn">
+                    <div class="vectors">
+                        <svg class="svg-icon" viewBox="0 0 16 16">
+                            <path
+                                fill-rule="evenodd"
+                                d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div class="activity-dot"></div>
+                </label>
+                <input type="radio" name="nav-actions" id="social-btn" />
+                <label for="social-btn">
+                    <div class="vectors">
+                        <svg class="svg-icon" viewBox="0 0 16 16">
+                            <path
+                                fill-rule="evenodd"
+                                d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div class="activity-dot"></div>
+                </label>
+                <input type="radio" name="nav-actions" id="star-btn" />
+                <label for="star-btn">
+                    <div class="vectors">
+                        <svg class="svg-icon" viewBox="0 0 16 16">
+                            <path
+                                fill-rule="evenodd"
+                                d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div class="activity-dot"></div>
+                </label>
+                <input type="radio" name="nav-actions" id="share-btn" />
+                <label for="share-btn">
+                    <div class="vectors">
+                        <svg viewBox="0 0 372 468" class="svg-icon">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M246 154H273.79C291.764 154 303.043 154.029 311.545 154.735C319.616 155.405 321.909 156.495 322.524 156.815C327.09 159.187 330.813 162.91 333.185 167.476C333.505 168.091 334.595 170.385 335.265 178.455C335.971 186.957 336 198.236 336 216.21V369.47C336 387.444 335.971 398.723 335.265 407.225C334.595 415.296 333.505 417.589 333.185 418.204C330.813 422.77 327.09 426.493 322.524 428.865C321.909 429.185 319.616 430.275 311.545 430.945C303.043 431.651 291.764 431.68 273.79 431.68H98.21C80.2363 431.68 68.9573 431.651 60.4555 430.945C52.3845 430.275 50.0911 429.185 49.4756 428.865C44.9096 426.493 41.1866 422.77 38.8147 418.204C38.4949 417.589 37.4052 415.296 36.735 407.225C36.0289 398.723 36 387.444 36 369.47V216.21C36 198.236 36.0289 186.957 36.735 178.455C37.4052 170.384 38.4949 168.091 38.8147 167.476C41.1866 162.91 44.9096 159.187 49.4756 156.815C50.0911 156.495 52.3845 155.405 60.4555 154.735C68.9573 154.029 80.2363 154 98.21 154H126C135.941 154 144 145.941 144 136C144 126.059 135.941 118 126 118H98.21C63.4711 118 46.1016 118 32.8806 124.868C21.7393 130.655 12.6552 139.739 6.86778 150.881C0 164.102 0 181.471 0 216.21V369.47C0 404.209 0 421.578 6.86778 434.799C12.6552 445.941 21.7393 455.025 32.8806 460.812C46.1016 467.68 63.4711 467.68 98.21 467.68H273.79C308.529 467.68 325.898 467.68 339.119 460.812C350.261 455.025 359.345 445.941 365.132 434.799C372 421.578 372 404.209 372 369.47V216.21C372 181.471 372 164.102 365.132 150.881C359.345 139.739 350.261 130.655 339.119 124.868C325.898 118 308.529 118 273.79 118H246C236.059 118 228 126.059 228 136C228 145.941 236.059 154 246 154Z"
+                            />
+                            <rect
+                                x="168"
+                                y="7"
+                                width="36"
+                                height="280"
+                                rx="18"
+                            />
+                            <rect
+                                x="185.569"
+                                width="36"
+                                height="100"
+                                rx="18"
+                                transform="rotate(45 185.569 0)"
+                            />
+                            <rect
+                                x="161"
+                                y="25.4559"
+                                width="36"
+                                height="100"
+                                rx="18"
+                                transform="rotate(-45 161 25.4559)"
+                            />
+                        </svg>
+                    </div>
+                    <div class="activity-dot"></div>
+                </label>
+            </div>
+        </div>
+    </body>
+</html>

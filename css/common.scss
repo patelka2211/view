@@ -1,0 +1,69 @@
+// _common.scss
+
+$max-width: 620px;
+$transition-time: 0.4s;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary: #ffffff;
+    --primary-o86: #ffffffdb;
+    --primary-o9: #ffffffe6;
+    --highlight: #1da1f2;
+    --highlight-o86: rgba(29, 161, 242, 0.1);
+    --color-attract: #14171a;
+    --color-dim: #657786;
+    --border-color: #1c1c1c1a;
+    --border-color: #e8e8e8;
+    --shadow: #1c1c1c33;
+    --uid-box-color: #fff;
+}
+
+.dark {
+    --primary: #14171a;
+    --primary-o86: #14171adb;
+    --primary-o9: #14171ae6;
+    --highlight: #1da1f2;
+    --highlight-o86: rgba(29, 161, 242, 0.2);
+    --color-attract: #f5f8fa;
+    --color-dim: #657786;
+    --border-color: #3e485166;
+    --border-color: #252b30;
+    --shadow: #090a0b;
+    --uid-box-color: #22282d;
+}
+
+body {
+    transition: background-color $transition-time ease;
+    background-color: var(--primary);
+}
+
+::-webkit-scrollbar {
+    width: 0.4em;
+    height: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+    transition: background $transition-time ease;
+    background: var(--primary);
+    border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb {
+    transition: background $transition-time ease;
+    background: var(--border-color);
+    border-radius: 100vh;
+}
+
+@supports (scrollbar-color: var(--border-color) var(--primary)) {
+    * {
+        transition: scrollbar-color $transition-time ease;
+        scrollbar-color: var(--border-color) var(--primary);
+        scrollbar-width: thin;
+        border-radius: 100vh;
+    }
+}

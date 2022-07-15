@@ -1,0 +1,97 @@
+$transition-time: 0.4s;
+#header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 8vh;
+    min-height: 60px;
+    backdrop-filter: blur(10px);
+    transition: background-color $transition-time ease;
+    background-color: var(--primary-o86);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .content {
+        width: inherit;
+        max-width: 620px;
+        height: inherit;
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .header-repo {
+            padding: 2vh;
+            font-size: 1.6rem;
+            text-align: center;
+            transition: color $transition-time ease;
+            color: var(--color-attract);
+        }
+        .header-social {
+            input {
+                display: none;
+                + label {
+                    backdrop-filter: blur(100px);
+                    transition: color $transition-time ease,
+                        background-color $transition-time ease;
+
+                    padding: 8px 12px;
+                    margin: 0 4px;
+                    color: var(--color-dim);
+                    border-radius: 100px;
+                    &:hover {
+                        cursor: pointer;
+                        color: var(--color-attract);
+                        background-color: var(--border-color);
+                    }
+                }
+                &:checked {
+                    + label {
+                        color: var(--highlight);
+                        background-color: var(--highlight-o86);
+                    }
+                }
+            }
+        }
+        .header-share {
+            font-size: 1.4rem;
+            .author-creds {
+                text-decoration: none;
+                transition: color $transition-time ease;
+                color: var(--color-attract);
+                display: flex;
+                align-items: center;
+                svg {
+                    margin: 0 4px;
+                    width: 30px;
+                    height: 20px;
+                    .tricolor-orange {
+                        fill: #ff9933;
+                    }
+                    .tricolor-white {
+                        fill: #fff;
+                    }
+                    .tricolor-green {
+                        fill: #128807;
+                    }
+                    .tricolor-chakra-blue {
+                        fill: #000088;
+                    }
+                }
+                .text {
+                    .author {
+                        background: linear-gradient(
+                            45deg,
+                            #0088ff -28.62%,
+                            #a033ff 36.39%,
+                            #ff5c87 98.74%
+                        );
+                        -webkit-background-clip: text;
+                        color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
