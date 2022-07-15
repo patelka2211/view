@@ -510,7 +510,7 @@ class app_manager {
                                         <div class="space">
                                             <a
                                                 target="_blank"
-                                                href="/?tab=profile&uid=${uname}"
+                                                href="./?tab=profile&uid=${uname}"
                                                 title="View ${uname}'s profile"
                                                 class="user-profile-link"
                                             ></a>
@@ -529,7 +529,7 @@ class app_manager {
                                                 </a>
                                             </div>
                                             <div class="externals">
-                                                <a href="/?tab=repo&uid=${uname}" target="_blank" class="links">
+                                                <a href="./?tab=repo&uid=${uname}" target="_blank" class="links">
                                                     <svg class="svg-icon" viewBox="0 0 16 16">
                                                         <path
                                                             fill-rule="evenodd"
@@ -538,7 +538,7 @@ class app_manager {
                                                     </svg>
                                                 </a>
                                                 <div class="line"></div>
-                                                <a href="/?tab=social&uid=${uname}" target="_blank" class="links">
+                                                <a href="./?tab=social&uid=${uname}" target="_blank" class="links">
                                                     <svg class="svg-icon" viewBox="0 0 16 16">
                                                         <path
                                                             fill-rule="evenodd"
@@ -547,7 +547,7 @@ class app_manager {
                                                     </svg>
                                                 </a>
                                                 <div class="line"></div>
-                                                <a href="/?tab=star&uid=${uname}" target="_blank" class="links">
+                                                <a href="./?tab=star&uid=${uname}" target="_blank" class="links">
                                                     <svg class="svg-icon" viewBox="0 0 16 16">
                                                         <path
                                                             fill-rule="evenodd"
